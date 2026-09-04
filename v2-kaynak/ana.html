@@ -1,0 +1,60 @@
+<div id="ana-ekran">
+  <div class="ana-bg"><span class="ana-blob b1"></span><span class="ana-blob b2"></span><span class="ana-blob b3"></span></div>
+  <div class="ana-icerik">
+    <div class="ana-ust">
+      <div class="ana-marka">
+        <div class="ana-logo">📚</div>
+        <div>
+          <h1>DKAB · Din Kültürü ve Ahlak Bilgisi</h1>
+          <p>Türkiye Yüzyılı Maarif Modeli · 2025–2026 · Etkileşimli Ders Sunumu</p>
+        </div>
+      </div>
+      <div class="ana-hizli">
+        <button class="ana-hbtn" onclick="openSube()" title="Şube kazanım takibi">📋 Şube Takibi</button>
+        <button class="ana-hbtn" onclick="openOgr()" title="Haftalık öğrenci takibi">👤 Öğrenci Takibi</button>
+        <button class="ana-hbtn" onclick="klasorAc()" title="Ders materyalleri">📁 Öğretmen Klasörü</button>
+        <button class="ana-hbtn" onclick="seciciAc()" title="Rastgele öğrenci seç">🎲 Rastgele Öğrenci</button>
+        <button class="ana-hbtn" onclick="ayarAc()" title="Program ayarları">⚙️ Ayarlar</button>
+      </div>
+    </div>
+    <div class="ana-hero">
+      <h2>Bugün hangi sınıfla <span>ders yapıyoruz?</span></h2>
+      <p>Bir sınıf seç; slaytlar, etkinlikler, geri sayım ve öğrenci araçları hazır.</p>
+    </div>
+    <div class="ana-grid">
+      <button class="ana-kart ana-k5" onclick="sinifSec(5)">
+        <div class="ana-kart-ust"><div class="ana-kart-no">5<small>Sınıf</small></div><span class="ana-kart-rozet" data-slayt-sayi="5">— slayt</span></div>
+        <div class="ana-kart-baslik">5. Sınıf DKAB</div>
+        <div class="ana-kart-alt">5 Ünite · 15 Öğrenme Çıktısı</div>
+        <div class="ana-kart-liste"><span>Allah İnancı</span><span>Namaz</span><span>Kur'an-ı Kerim</span><span>Peygamber Kıssaları</span><span>Mimarîmizde Dinî Motifler</span></div>
+        <div class="ana-kart-alt-satir"><span class="ana-git">Sunumu aç →</span><span class="ana-devam" data-devam="5" onclick="event.stopPropagation();devamEt(5)">▶ Kaldığın yerden</span></div>
+      </button>
+      <button class="ana-kart ana-k6" onclick="sinifSec(6)">
+        <div class="ana-kart-ust"><div class="ana-kart-no">6<small>Sınıf</small></div><span class="ana-kart-rozet" data-slayt-sayi="6">— slayt</span></div>
+        <div class="ana-kart-baslik">6. Sınıf DKAB</div>
+        <div class="ana-kart-alt">5 Ünite · 17 Öğrenme Çıktısı</div>
+        <div class="ana-kart-liste"><span>Peygamber ve İlahi Kitap</span><span>Ramazan ve Oruç</span><span>Ahlaki Davranışlar</span><span>Hz. Muhammed (sav)</span><span>Kültürümüzdeki Dinî Motifler</span></div>
+        <div class="ana-kart-alt-satir"><span class="ana-git">Sunumu aç →</span><span class="ana-devam" data-devam="6" onclick="event.stopPropagation();devamEt(6)">▶ Kaldığın yerden</span></div>
+      </button>
+      <button class="ana-kart ana-k7" onclick="sinifSec(7)">
+        <div class="ana-kart-ust"><div class="ana-kart-no">7<small>Sınıf</small></div><span class="ana-kart-rozet">Şube takibi</span></div>
+        <div class="ana-kart-baslik">7. Sınıf DKAB</div>
+        <div class="ana-kart-alt">5 Ünite · 17 Öğrenme Çıktısı</div>
+        <div class="ana-kart-liste"><span>Melekler ve Ahiret İnancı</span><span>Hac, Umre ve Kurban</span><span>İslam Düşüncesinde Yorumlar</span><span>Peygamber Olarak Hz. Muhammed</span><span>Yaşayan Dünya Dinleri</span></div>
+        <div class="ana-kart-alt-satir"><span class="ana-git">Kazanım takibini aç →</span></div>
+      </button>
+      <button class="ana-kart ana-k8" onclick="sinifSec(8)">
+        <div class="ana-kart-ust"><div class="ana-kart-no">8<small>Sınıf</small></div><span class="ana-kart-rozet">Şube takibi</span></div>
+        <div class="ana-kart-baslik">8. Sınıf DKAB</div>
+        <div class="ana-kart-alt">5 Ünite · 17 Öğrenme Çıktısı</div>
+        <div class="ana-kart-liste"><span>Şube bazlı kazanım işaretleme</span><span>Kazanım ve şube düzenleme</span><span>Genel not alanı</span></div>
+        <div class="ana-kart-alt-satir"><span class="ana-git">Kazanım takibini aç →</span></div>
+      </button>
+    </div>
+    <div class="ana-alt">
+      <div class="ana-ozet"><span><b data-toplam-slayt>—</b>slayt</span><span><b data-toplam-etkinlik>—</b>etkileşimli etkinlik</span><span><b data-toplam-kavram>—</b>kavram kartı</span></div>
+      <div class="ana-kisayol"><kbd>← →</kbd><span>gezin</span><kbd>K</kbd><span>konular</span><kbd>T</kbd><span>geri sayım</span><kbd>R</kbd><span>rastgele öğrenci</span><kbd>?</kbd><span>tüm kısayollar</span></div>
+      <span>Levent Öğretmen · DKAB · 2025–2026</span>
+    </div>
+  </div>
+</div>

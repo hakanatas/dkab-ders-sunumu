@@ -1,0 +1,36 @@
+<div id="progress"><div id="prog-fill" style="width:0.8%;"></div></div>
+<div id="navbar">
+  <div class="nav-g">
+    <button class="nb" onclick="anaEkranaGeri()" title="Ana ekran (Esc)"><span class="nb-ico">🏠</span></button>
+    <button class="nb" id="konu-btn" onclick="konuAcKapa()" title="Konular ve slayt listesi (K)"><span class="nb-ico">☰</span>&nbsp;Konular</button>
+  </div>
+  <div class="nav-ayrac"></div>
+  <div class="nav-g">
+    <button class="nb" onclick="prevSlide()" title="Önceki slayt (←)" style="width:34px;padding:0;"><span class="nb-ico">‹</span></button>
+    <span id="slide-ctr"><input id="slide-input" type="text" inputmode="numeric" value="1" onkeydown="sayfaGit(event)" onblur="this.value=cur+1" onfocus="this.select()" title="Sayfa numarası yaz, Enter'a bas"><span id="slide-total"> / 179</span></span>
+    <button class="nb" onclick="nextSlide()" title="Sonraki slayt (→)" style="width:34px;padding:0;"><span class="nb-ico">›</span></button>
+  </div>
+  <div class="nav-ayrac"></div>
+  <div class="nav-g">
+    <span id="timer-disp" title="Ders süresi (kronometre)">00:00</span>
+    <button class="nb" onclick="timerToggle()" id="tbtn" title="Kronometre başlat/durdur" style="width:34px;padding:0;">▶</button>
+    <button class="nb" onclick="timerReset()" title="Kronometreyi sıfırla" style="width:34px;padding:0;">↺</button>
+    <button class="nb" id="gs-btn" onclick="geriSayimMenu(event)" title="Geri sayım (T)"><span class="nb-ico">⏳</span></button>
+    <button class="nb" onclick="seciciAc()" title="Rastgele öğrenci seç (R)"><span class="nb-ico">🎲</span></button>
+  </div>
+  <div class="nav-ayrac"></div>
+  <div class="nav-g">
+    <div id="font-g">
+      <button onclick="fKucult()" title="Yazıyı küçült">A−</button>
+      <span id="font-pct">100%</span>
+      <button onclick="fBuyut()" title="Yazıyı büyüt">A+</button>
+    </div>
+    <button class="nb" id="cizimToggle" onclick="cizimModu()" title="Kalem / çizim araçları" style="width:34px;padding:0;"><span class="nb-ico">✏️</span></button>
+    <button class="nb" id="lazer-btn" onclick="lazerAcKapa()" title="Lazer işaretçi (L)" style="width:34px;padding:0;"><span class="nb-ico">🔦</span></button>
+    <button class="nb" id="spot-btn" onclick="spotAcKapa()" title="Spot ışığı (S)" style="width:34px;padding:0;"><span class="nb-ico">🔆</span></button>
+    <button class="nb" id="ses-btn" onclick="sesAcKapa()" title="Sesleri aç/kapat (M)" style="width:34px;padding:0;"><span class="nb-ico">🔊</span></button>
+    <button class="nb" onclick="toggleFS()" title="Tam ekran (F)" style="width:34px;padding:0;"><span class="nb-ico">⛶</span></button>
+    <button class="nb" onclick="kisayolAc()" title="Klavye kısayolları (?)" style="width:34px;padding:0;"><span class="nb-ico">?</span></button>
+    <button class="nb" onclick="toggleMenu()" id="menu-btn" title="Menü" style="width:34px;padding:0;font-size:15px;"><span class="nb-ico">⋯</span></button>
+  </div>
+</div>

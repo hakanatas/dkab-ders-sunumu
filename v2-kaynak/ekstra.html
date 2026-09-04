@@ -1,0 +1,161 @@
+<!-- ═══ v2: Konular çekmecesi ═══ -->
+<div id="konu-perde" onclick="konuKapat()"></div>
+<aside id="konu-cekmece" aria-label="Konular">
+  <div class="kc-ust">
+    <div class="kc-baslik">
+      <div><h3 id="kc-baslik-metin">Konular</h3><small id="kc-alt-metin">Slayt listesi</small></div>
+      <button class="kc-kapat" onclick="konuKapat()" title="Kapat (Esc)">✕</button>
+    </div>
+    <input class="kc-ara" id="kc-ara" type="text" placeholder="Slayt, etkinlik veya kavram ara…" oninput="konuFiltre(this.value)">
+  </div>
+  <div class="kc-liste" id="kc-liste"></div>
+</aside>
+
+<!-- ═══ v2: Geri sayım ═══ -->
+<div id="gsayim">
+  <div class="gs-halka">
+    <svg viewBox="0 0 132 132"><circle class="gs-arka" cx="66" cy="66" r="56"></circle><circle class="gs-on" id="gs-on" cx="66" cy="66" r="56"></circle></svg>
+    <div class="gs-sure" id="gs-sure">05:00</div>
+  </div>
+  <div class="gs-etiket" id="gs-etiket">Geri sayım</div>
+  <div class="gs-btnler">
+    <button class="ana" id="gs-basdur" onclick="geriSayimBasDur()" title="Başlat / duraklat">▶</button>
+    <button onclick="geriSayimEkle(60)" title="1 dakika ekle">+1</button>
+    <button onclick="geriSayimSifirla()" title="Başa al">↺</button>
+    <button onclick="geriSayimKapat()" title="Kapat">✕</button>
+  </div>
+</div>
+<div id="gs-flash"></div>
+<div id="gs-menu">
+  <div class="gsm-baslik">Geri sayım süresi</div>
+  <div class="gsm-satir">
+    <button onclick="geriSayimBaslat(1)">1 dk</button><button onclick="geriSayimBaslat(2)">2 dk</button><button onclick="geriSayimBaslat(3)">3 dk</button><button onclick="geriSayimBaslat(5)">5 dk</button>
+  </div>
+  <div class="gsm-satir">
+    <button onclick="geriSayimBaslat(10)">10 dk</button><button onclick="geriSayimBaslat(15)">15 dk</button><button onclick="geriSayimBaslat(20)">20 dk</button><button onclick="geriSayimBaslat(40)">40 dk</button>
+  </div>
+  <div class="gsm-satir">
+    <input id="gs-ozel" type="number" min="1" max="180" placeholder="dk" onkeydown="if(event.key==='Enter')geriSayimOzel()"><button onclick="geriSayimOzel()">Başlat</button><button onclick="geriSayimMenuKapat()" style="margin-left:auto;">Kapat</button>
+  </div>
+</div>
+
+<!-- ═══ v2: Rastgele öğrenci seçici ═══ -->
+<div id="secici-modal" class="modal-ov" onclick="if(event.target===this)seciciKapat()">
+  <div class="modal-box">
+    <button class="modal-x" onclick="seciciKapat()">✕</button>
+    <div class="modal-eye" style="color:var(--purple);">Sınıf Etkileşimi</div>
+    <div class="modal-ttl">🎲 Rastgele Öğrenci Seç</div>
+    <div class="caption" style="margin-top:.2em;">Liste kaynağı seç; isimler Öğrenci Takibi'ndeki şubelerden veya kendi listenden gelir.</div>
+    <div class="sc-kaynak" id="sc-kaynak"></div>
+    <div class="sc-sahne">
+      <div>
+        <div class="sc-isim" id="sc-isim">Hazır mısın?</div>
+        <div class="sc-alt" id="sc-alt">Seç düğmesine bas</div>
+      </div>
+    </div>
+    <div class="sc-btnler">
+      <button class="sc-btn ana" id="sc-sec" onclick="seciciSec()">🎲 Rastgele Seç</button>
+      <button class="sc-btn uc" onclick="seciciGrupla()">👥 Gruplara Ayır</button>
+      <input id="sc-grup-n" type="number" min="2" max="12" value="4" title="Grup sayısı" style="width:56px;background:var(--bg3);border:1.5px solid transparent;border-radius:10px;padding:9px 10px;font-family:var(--font-b);font-size:13px;font-weight:700;color:var(--p1);outline:none;">
+      <button class="sc-btn ikincil" onclick="seciciSifirla()">↺ Sıfırla</button>
+      <label class="sc-opt"><input type="checkbox" id="sc-tekrarsiz" checked> Seçileni tekrar seçme</label>
+    </div>
+    <div class="sc-secilenler" id="sc-secilenler"></div>
+    <div class="sc-gruplar" id="sc-gruplar"></div>
+    <details class="sc-liste-kutu">
+      <summary>✏️ Kendi listem — her satıra bir isim</summary>
+      <textarea id="sc-liste" placeholder="Ahmet Yılmaz&#10;Ayşe Kaya&#10;…" oninput="seciciListeKaydet(this.value)"></textarea>
+    </details>
+  </div>
+</div>
+
+<!-- ═══ v2: Kısayollar ═══ -->
+<div id="kisayol-modal" class="modal-ov" onclick="if(event.target===this)kisayolKapat()">
+  <div class="modal-box">
+    <button class="modal-x" onclick="kisayolKapat()">✕</button>
+    <div class="modal-eye" style="color:var(--blue);">Yardım</div>
+    <div class="modal-ttl">⌨️ Klavye Kısayolları</div>
+    <div class="ks-grid">
+      <div class="ks-bolum">Gezinme</div>
+      <div class="ks-satir"><span>Sonraki / önceki slayt</span><kbd>→ ← Boşluk</kbd></div>
+      <div class="ks-satir"><span>İlk / son slayt</span><kbd>Home / End</kbd></div>
+      <div class="ks-satir"><span>Konular çekmecesi</span><kbd>K</kbd></div>
+      <div class="ks-satir"><span>Ana ekrana dön</span><kbd>Esc</kbd></div>
+      <div class="ks-bolum">Sunum araçları</div>
+      <div class="ks-satir"><span>Tam ekran</span><kbd>F</kbd></div>
+      <div class="ks-satir"><span>Öğretmen notu göster / gizle</span><kbd>N</kbd></div>
+      <div class="ks-satir"><span>Lazer işaretçi</span><kbd>L</kbd></div>
+      <div class="ks-satir"><span>Spot ışığı (büyüt / küçült)</span><kbd>S · + −</kbd></div>
+      <div class="ks-satir"><span>Sesleri aç / kapat</span><kbd>M</kbd></div>
+      <div class="ks-bolum">Sınıf etkileşimi</div>
+      <div class="ks-satir"><span>Geri sayım menüsü</span><kbd>T</kbd></div>
+      <div class="ks-satir"><span>Rastgele öğrenci</span><kbd>R</kbd></div>
+      <div class="ks-satir"><span>Slayttaki süre rozetine tıkla</span><kbd>⏱ 10 dk ▸</kbd></div>
+      <div class="ks-satir"><span>Bu pencere</span><kbd>?</kbd></div>
+    </div>
+    <div class="caption" style="margin-top:1em;">İpucu: Çoktan seçmeli sorularda şıklara, doğru/yanlış satırlarında <b>D</b> / <b>Y</b> düğmelerine tıklayarak anında geri bildirim alabilirsin. Tablette sağa/sola kaydırarak slayt değiştirebilirsin.</div>
+  </div>
+</div>
+
+<!-- ═══ v2: Lazer, spot, konfeti, bildirim ═══ -->
+<div id="lazer-nokta"></div>
+<div id="spot-perde"></div>
+<canvas id="konfeti"></canvas>
+<div id="v2-toast"></div>
+
+<!-- ═══ Eksik kalan araç arayüzleri: dışa aktarma ilerlemesi ═══ -->
+<div id="da-overlay"><div class="da-kutu"><div id="da-durum">Hazırlanıyor…</div><div class="da-yol"><div id="da-bar"></div></div></div></div>
+
+<!-- ═══ Eksik kalan araç arayüzleri: seçili metin biçimlendirme çubuğu (düzenleme modu) ═══ -->
+<div id="metin-arac" onmousedown="event.preventDefault()">
+  <button onclick="metinKomut('bold')" title="Kalın"><b>B</b></button>
+  <button onclick="metinKomut('italic')" title="İtalik"><i>I</i></button>
+  <button onclick="metinKomut('underline')" title="Altı çizili"><u>U</u></button>
+  <div class="ma-ayrac"></div>
+  <button onclick="metinPunto(1)" title="Büyüt">A+</button>
+  <button onclick="metinPunto(-1)" title="Küçült">A−</button>
+  <div class="ma-ayrac"></div>
+  <input type="color" value="#2457e6" oninput="metinRenk(this.value)" title="Yazı rengi">
+  <select id="metin-font" onchange="metinFont(this.value)"></select>
+  <div class="ma-ayrac"></div>
+  <button onclick="metinHiza('Left')" title="Sola hizala">⯇</button>
+  <button onclick="metinHiza('Center')" title="Ortala">☰</button>
+  <button onclick="metinHiza('Right')" title="Sağa hizala">⯈</button>
+  <div class="ma-ayrac"></div>
+  <button onclick="metinTemizle()" title="Biçimi temizle">✕</button>
+</div>
+
+<!-- ═══ Eksik kalan araç arayüzleri: PDF / Görsel düzenleyici ═══ -->
+<div id="duz-modal" class="modal-ov" onclick="if(event.target===this)dzKapat()">
+  <div class="modal-box duz-box">
+    <div class="duz-baslik-cubuk"><span>📄 PDF ve Görsel Düzenleyici</span><span style="flex:1;"></span><button class="modal-x" onclick="dzKapat()">✕</button></div>
+    <div id="duz-arac-cubuk">
+      <button class="duz-btn" onclick="dzDosyaSec()">📤 Dosya Yükle</button>
+      <input type="file" id="duz-dosya-inp" accept="application/pdf,image/*" style="display:none;" onchange="dzDosyaYuklendi(this)">
+      <div class="duz-ayrac"></div>
+      <button class="duz-btn sec" id="duz-kalem" onclick="dzArac('kalem')">✏️ Kalem</button>
+      <button class="duz-btn" id="duz-yazi" onclick="dzArac('yazi')">T Yazı</button>
+      <input type="color" class="duz-renk" value="#cc0000" oninput="if(dzDurum)dzDurum.renk=this.value" title="Renk">
+      <select class="duz-sel" onchange="if(dzDurum)dzDurum.kalinlik=parseInt(this.value,10)" title="Kalınlık"><option value="2">İnce</option><option value="4" selected>Orta</option><option value="8">Kalın</option></select>
+      <select class="duz-sel" onchange="if(dzDurum)dzDurum.fontPunto=parseInt(this.value,10)" title="Yazı puntosu"><option value="20">20 pt</option><option value="28" selected>28 pt</option><option value="36">36 pt</option><option value="48">48 pt</option></select>
+      <div class="duz-ayrac"></div>
+      <button class="duz-btn" onclick="dzGeriAl()">↶ Geri Al</button>
+      <button class="duz-btn" onclick="dzTemizle()">🗑 Temizle</button>
+      <div class="duz-ayrac"></div>
+      <button class="duz-btn" onclick="dzSayfa(-1)">◀</button>
+      <span class="duz-bilgi" id="duz-bilgi">Dosya yükle</span>
+      <button class="duz-btn" onclick="dzSayfa(1)">▶</button>
+      <div class="duz-ayrac"></div>
+      <button class="duz-btn duz-indir" onclick="dzIndir('png')">⬇ PNG</button>
+      <button class="duz-btn duz-indir" id="duz-pdf-indir" onclick="dzIndir('pdf')" style="display:none;">⬇ PDF</button>
+    </div>
+    <div id="duz-sahne">
+      <div id="duz-kapsayici" class="bos">
+        <canvas id="duz-tuval"></canvas>
+        <canvas id="duz-anot" onpointerdown="dzAnotPointerDown(event)" onpointermove="dzAnotPointerMove(event)" onpointerup="dzAnotPointerUp(event)" onpointercancel="dzAnotPointerUp(event)"></canvas>
+        <div id="duz-yazilar"></div>
+        <div id="duz-bos">PDF veya görsel (JPEG/PNG) dosya yükle</div>
+      </div>
+    </div>
+  </div>
+</div>
